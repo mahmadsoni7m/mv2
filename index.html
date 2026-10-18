@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SONI MOTION STUDIO</title><meta name="theme-color" content="#08080c">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/icons/icon.svg">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header><h1>SONI MOTION STUDIO</h1><p>Create. Animate. Feel the Beat.</p></header>
+<main>
+<section class="stage"><div class="frame"><canvas id="cv" aria-label="Video preview"></canvas></div>
+<div class="bar"><button id="play" aria-label="Play or pause">Play</button><button id="restart" aria-label="Restart">Restart</button>
+<input id="seek" type="range" min="0" max="1000" value="0" aria-label="Timeline"><span id="time">0:00 / 0:10</span></div></section>
+<section class="panel">
+<details open><summary>Background</summary><label>Library<select id="bg"></select></label>
+<label>Upload image<input id="bgfile" type="file" accept="image/*"></label><button id="bgclear">Use library background</button><div id="sliders-bg"></div>
+<label>Primary<input type="color" id="c1"></label><label>Secondary (base)<input type="color" id="c2"></label></details>
+<details open><summary>Animation</summary><label>Preset<select id="preset"></select></label><div id="fx" class="chips"></div><div id="sliders-fx"></div></details>
+<details><summary>Music</summary><label>Audio file<input id="afile" type="file" accept="audio/*"></label>
+<button id="demo">Generate demo beat</button><p id="ainfo">No audio. Visuals use a synthetic pulse.</p>
+<label class="row"><input type="checkbox" id="mute">Mute preview</label><div id="sliders-au"></div></details>
+<details><summary>Text overlay</summary><label>Text<input id="text" maxlength="80"></label>
+<label>Player title<input id="ptitle" maxlength="40"></label><label>Player artist<input id="partist" maxlength="40"></label><label>Player handle<input id="phandle" maxlength="30"></label>
+<label>Font<select id="font"><option>sans-serif</option><option>serif</option><option>monospace</option><option>Impact, sans-serif</option></select></label>
+<label>Color<input type="color" id="tcolor" value="#ffffff"></label><div id="sliders-tx"></div></details>
+<details open><summary>Export</summary>
+<label>Aspect<select id="ar"><option value="9:16">9:16 vertical</option><option value="16:9">16:9 landscape</option><option value="1:1">1:1 square</option><option value="4:5">4:5 portrait</option></select></label>
+<label>Resolution<select id="res"><option value="720">720p</option><option value="1080" selected>1080p</option><option value="1440">1440p</option><option value="2160">2160p (4K)</option></select></label>
+<label>Duration<select id="dur"><option>5</option><option selected>10</option><option>15</option><option>30</option><option>60</option></select></label>
+<label>Frame rate<select id="fps"><option>24</option><option selected>30</option><option>60</option></select></label>
+<label>Quality<select id="q"><option value="0.05">Small</option><option value="0.1" selected>Balanced</option><option value="0.2">High</option></select></label>
+<label class="row"><input type="checkbox" id="aon" checked>Include audio</label>
+<p id="warn" class="note"></p><button id="exp" class="cta">Start export</button><button id="cancel" hidden>Cancel</button>
+<progress id="prog" value="0" max="1" hidden></progress><p id="status" role="status"></p><a id="dl" hidden class="cta">Download video</a><button id="share" hidden>Share or save to gallery</button></details>
+<details><summary>Project</summary><button id="save">Save locally</button><select id="plist" aria-label="Saved projects"></select>
+<button id="load">Load</button><button id="del">Delete</button><button id="jexp">Export JSON</button>
+<label>Import JSON<input type="file" id="jimp" accept=".json,application/json"></label><button id="reset">Reset project</button>
+<p class="note">Saved projects store settings only. Uploaded images and audio are not kept; re-add them after reloading.</p></details>
+</section></main><script src="js/app.js"></script></body></html>
